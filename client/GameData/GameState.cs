@@ -1,4 +1,5 @@
 ﻿using FFRKInspector.GameData.Party;
+using FFRKInspector.GameData.RWs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace FFRKInspector.GameData
         private DataGachaSeriesList mGachas;
         private DataPartyDetails mParty;
         private AppInit.AppInitData mAppInitData;
+        private List<DataRelatedRW> mRelatedRWs;
 
         public GameState()
         {
@@ -21,6 +23,7 @@ namespace FFRKInspector.GameData
             mActiveDungeon = null;
             mGachas = null;
             mAppInitData = null;
+            mRelatedRWs = null;
         }
 
         public EventBattleInitiated ActiveBattle
@@ -51,6 +54,12 @@ namespace FFRKInspector.GameData
         {
             get { return mAppInitData; }
             set { mAppInitData = value; }
+        }
+
+        public List<DataRelatedRW> RelatedRWs
+        {
+            get { return mRelatedRWs; }
+            set { mRelatedRWs = value; }
         }
     }
 }
