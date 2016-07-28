@@ -41,6 +41,15 @@ namespace FFRKInspector.GameData.Party
         [JsonProperty("equipment_type")]
         public SchemaConstants.ItemType Type;
 
+        [JsonProperty("hammering_num")]
+        public byte Augment;
+
+        [JsonProperty("max_hammering_num")]
+        public byte AugmentMax;
+
+        [JsonProperty("hammering_affect_param_key")]
+        private string HammeringStat;
+
         [JsonProperty("atk")]
         public short Atk;
         [JsonProperty("matk")]
@@ -55,23 +64,92 @@ namespace FFRKInspector.GameData.Party
         public short Eva;
         [JsonProperty("mnd")]
         public short Mnd;
+        [JsonProperty("hp")]
+        public short HP;
+        [JsonProperty("spd")]
+        public short Spd;
 
-        [JsonProperty("series_atk")]
+        [JsonProperty("sp_atk")]
         public short SeriesAtk;
-        [JsonProperty("series_matk")]
+        [JsonProperty("sp_matk")]
         public short SeriesMag;
-        [JsonProperty("series_acc")]
+        [JsonProperty("sp_acc")]
         public short SeriesAcc;
-        [JsonProperty("series_def")]
+        [JsonProperty("sp_def")]
         public short SeriesDef;
-        [JsonProperty("series_mdef")]
+        [JsonProperty("sp_mdef")]
         public short SeriesRes;
-        [JsonProperty("series_eva")]
+        [JsonProperty("sp_eva")]
         public short SeriesEva;
-        [JsonProperty("series_mnd")]
+        [JsonProperty("sp_mnd")]
         public short SeriesMnd;
+        [JsonProperty("sp_hp")]
+        public short SeriesHP;
+        [JsonProperty("sp_spd")]
+        public short SeriesSpd;
 
         [JsonProperty("category_id")]
         public SchemaConstants.EquipmentCategory Category;
+
+        public string AugmentStat
+        {
+            get
+            {
+                switch (HammeringStat)
+                {
+                    case "atk":
+                    case "acc":
+                    case "def":
+                    case "eva":
+                    case "mnd":
+                        return HammeringStat.First().ToString().ToUpper() + HammeringStat.Substring(1);
+                    case "matk":
+                        return "Mag";
+                    case "mdef":
+                        return "Res";
+                }
+                return null;
+            }
+
+            set
+            {
+                HammeringStat = value;
+            }
+        }
+
+        public short StatInRealm(string stat, uint gameSeries)
+        {
+            return StatWithSynergy(stat, gameSeries == SeriesId);
+        }
+
+        public short StatWithSynergy(string stat, bool hasSynergy)
+        {
+            string statToUse = hasSynergy ? "Series" + stat : stat;
+
+            System.Reflection.FieldInfo statField = typeof(DataEquipmentInformation).GetField(statToUse);
+            short statValue = (short)statField.GetValue(this);
+
+            if (AugmentStat != null && AugmentStat == stat)
+            {
+                statValue = (short)Math.Ceiling((hasSynergy ? Augment * 1.5 : (double)Augment) + statValue);
+            }
+            return statValue;
+        }
+
+        public double ElementalMultiplier(SchemaConstants.ElementID element)
+        {
+            SchemaConstants.ElementID storedElement;
+
+            if (EquipmentElementalInformation.ElementalEquipment.TryGetValue(EquipmentId, out storedElement) && storedElement == element)
+            {
+                return 1.2;
+            }
+            return 1.0;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

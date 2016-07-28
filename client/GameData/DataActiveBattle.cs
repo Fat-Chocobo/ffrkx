@@ -76,7 +76,7 @@ namespace FFRKInspector.GameData
                                                 elemresist.Add(Enum.GetName(typeof(SchemaConstants.ElementID), defattributes.Id));
                                             }
                                         }
-                                        else if ((defattributes.Id >= 200) && (defattributes.Id < 216)) //If >=200 then it must be a status effect.
+                                        else if ((defattributes.Id >= 200) && (defattributes.Id < 243)) //If >=200 then it must be a status effect.
                                         {
                                             if (defattributes.Factor == (int)SchemaConstants.StatusVulnerability.Immune)
                                             {

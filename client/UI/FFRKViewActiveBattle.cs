@@ -141,7 +141,8 @@ namespace FFRKInspector.UI
                             List<string> AllStatusEffects = new List<String>()
                             {
                                 "Poison","Silence","Paralyze","Confuse","Slow","Stop",
-                                "Blind","Sleep","Petrify","Doom","Instant_KO","Beserk"
+                                "Blind","Sleep","Petrify","Doom","Instant_KO","Beserk",
+                                "Sap","Stun"
                                 //,"Haste","Shell","Protect","Regen","Reflect"
                             };
                             //Calculate difference between above set of status effects and the status immunities of enemy.

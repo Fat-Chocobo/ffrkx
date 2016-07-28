@@ -15,6 +15,8 @@ namespace FFRKInspector.GameData
         public short? Res;
         public short? Eva;
         public short? Mnd;
+        public short? Augments;
+        public string AugmentStat;
 
         public bool IsValid
         {

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,8 @@ namespace FFRKInspector.GameData
         // the 'prob_by_item' array.  They each contain one different field, but otherwise
         // appear to be identical.  The missing field from the 'equipments' table doesn't
         // appear useful, so we use the 'prob_by_item' array and ignore the other.
-        [JsonProperty("prob_by_item")]
+        // 10/28/2015 - 'prob_by_item' no longer exists. must use 'equipments'
+        [JsonProperty("equipments")]
         public List<DataGachaItem> Items;
     }
 }

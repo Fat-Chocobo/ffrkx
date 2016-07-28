@@ -45,9 +45,11 @@
             this.ffrkViewAbout1 = new FFRKInspector.UI.FFRKViewAbout();
             this.tabPageDebug = new System.Windows.Forms.TabPage();
             this.ffrkViewDebugging1 = new FFRKInspector.UI.FFRKViewDebugging();
+            this.tabPagePartyPlanner = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelConnection = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ffrkViewPartyPlanner1 = new FFRKInspector.UI.FFRKViewPartyPlanner();
             this.tabControlFFRKInspector.SuspendLayout();
             this.tabPageDungeon.SuspendLayout();
             this.tabPageBattle.SuspendLayout();
@@ -57,6 +59,7 @@
             this.tabPageGacha.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.tabPageDebug.SuspendLayout();
+            this.tabPagePartyPlanner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +70,7 @@
             this.tabControlFFRKInspector.Controls.Add(this.tabPageSearch);
             this.tabControlFFRKInspector.Controls.Add(this.tabPageInventory);
             this.tabControlFFRKInspector.Controls.Add(this.tabPageEditEquipment);
+            this.tabControlFFRKInspector.Controls.Add(this.tabPagePartyPlanner);
             this.tabControlFFRKInspector.Controls.Add(this.tabPageGacha);
             this.tabControlFFRKInspector.Controls.Add(this.tabPageAbout);
             this.tabControlFFRKInspector.Controls.Add(this.tabPageDebug);
@@ -226,6 +230,17 @@
             this.ffrkViewDebugging1.Size = new System.Drawing.Size(983, 590);
             this.ffrkViewDebugging1.TabIndex = 0;
             // 
+            // tabPagePartyPlanner
+            // 
+            this.tabPagePartyPlanner.Controls.Add(this.ffrkViewPartyPlanner1);
+            this.tabPagePartyPlanner.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePartyPlanner.Name = "tabPagePartyPlanner";
+            this.tabPagePartyPlanner.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePartyPlanner.Size = new System.Drawing.Size(983, 590);
+            this.tabPagePartyPlanner.TabIndex = 11;
+            this.tabPagePartyPlanner.Text = "Party Planner";
+            this.tabPagePartyPlanner.UseVisualStyleBackColor = true;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,6 +264,13 @@
             this.toolStripStatusLabelConnection.Size = new System.Drawing.Size(79, 17);
             this.toolStripStatusLabelConnection.Text = "Disconnected";
             // 
+            // ffrkViewPartyPlanner1
+            // 
+            this.ffrkViewPartyPlanner1.Location = new System.Drawing.Point(6, 6);
+            this.ffrkViewPartyPlanner1.Name = "ffrkViewPartyPlanner1";
+            this.ffrkViewPartyPlanner1.Size = new System.Drawing.Size(1172, 631);
+            this.ffrkViewPartyPlanner1.TabIndex = 0;
+            // 
             // FFRKTabInspector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +289,7 @@
             this.tabPageGacha.ResumeLayout(false);
             this.tabPageAbout.ResumeLayout(false);
             this.tabPageDebug.ResumeLayout(false);
+            this.tabPagePartyPlanner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -296,5 +319,7 @@
         private System.Windows.Forms.TabPage tabPageBattle;
         private FFRKViewActiveBattle ffrkViewActiveBattle;
         private FFRKViewInventory ffrkViewInventory1;
+        private System.Windows.Forms.TabPage tabPagePartyPlanner;
+        private FFRKViewPartyPlanner ffrkViewPartyPlanner1;
     }
 }

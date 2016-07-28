@@ -34,7 +34,7 @@ namespace FFRKInspector.UI
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("mailto:cppisking@gmail.com");
+            System.Diagnostics.Process.Start("https://www.reddit.com/r/FFRecordKeeper/");
         }
 
         private void buttonTestSettings_Click(object sender, EventArgs e)

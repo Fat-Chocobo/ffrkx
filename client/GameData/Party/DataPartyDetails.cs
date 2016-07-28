@@ -16,7 +16,13 @@ namespace FFRKInspector.GameData.Party
         [JsonProperty("buddies")]
         public DataBuddyInformation[] Buddies;
 
+        [JsonProperty("abilities")]
+        public DataAbilityInformation[] Abilities;
+
         [JsonProperty("equipments")]
         public DataEquipmentInformation[] Equipments;
+
+        [JsonProperty("record_materias")]
+        public DataRecordMateriaInformation[] RecordMaterias;
     }
 }

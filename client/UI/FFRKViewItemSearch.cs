@@ -236,8 +236,8 @@ namespace FFRKInspector.UI
         {
             listBoxRealmSynergy.SelectedItems.Clear();
             listBoxWorld.SelectedItems.Clear();
-            listBoxDungeon.SelectedItems.Clear();
-            listBoxBattle.SelectedItems.Clear();
+            DisableDungeonList();
+            DisableBattlesList();
             listBoxRarity.SelectedItems.Clear();
             textBoxNameFilter.Clear();
             radioButtonMinSamples.Checked = false;
